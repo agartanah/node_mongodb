@@ -1,0 +1,30 @@
+<h2 lang="ru">{{article.name}}</h2>
+<label class="brbot">Дата публикации: {{article.datePublication}}</label>
+<label style="font-size:large" class="brtop">
+    {{article.content}}
+</label>
+<label class="brbot" style="font-size:medium">
+    <p class="left">
+        <br>Авторы:<br>
+        {{#each article.authors}}
+            <a href="/authors/{{_id}}">{{name}}</a><br>
+        {{/each}}
+    </p>
+</label>
+
+<h2>Комментарии</h2>
+
+{{#each article.comments}}
+<ul>   
+    <li class="comments">
+        <label>
+            <label style="font-size:xx-large">
+                <b>{{nickname}}</b>
+            </label>
+            <label style="font-size: large">Оценка: {{grade}}</label>
+            <label style="font-size:x-large" class="brbot">{{text}}</label>
+        </label>
+    </li>
+</ul> 
+{{/each}}
+<div class="endcomments"></div>

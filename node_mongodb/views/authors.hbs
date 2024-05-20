@@ -1,0 +1,25 @@
+<h2 lang="ru">Авторы</h2>
+
+{{#if authors.length}}
+<ul>
+    {{#each authors}}
+        <li class="science" onclick="location.href='/authors/{{ _id }}'">
+            <label>
+                <h5 lang="ru" style="margin-left:70px"><b>{{ name }}</b></h5>
+                <label style="font-size:large">
+                    {{#if articles.length}}
+                        Статьи:<br>
+                        {{#each articles}}
+                            <a href="/article/{{_id}}" style="display: contents;">{{name}}</a><br>
+                        {{/each}}
+                    {{else}}
+                        У этого автора пока что нет статей!!!
+                    {{/if}}
+                </label>
+            </label>
+        </li>
+    {{/each}}
+</ul>
+{{else}}
+<p>No Articles</p>
+{{/if}}

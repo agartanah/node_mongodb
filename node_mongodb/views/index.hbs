@@ -1,0 +1,32 @@
+<h2 lang="ru">Список журналов</h2>
+<form action="/search" method="post"> 
+  <input type="text" name="text" class="search" placeholder="Поиск журналов по названию">
+  <input type="submit" name="search" class="btn-submit" value="Поиск статей">
+</form>
+
+{{#if article.length}}
+<ul>
+    {{#each article}}
+        <li class="science" onclick="location.href='/article/{{ _id }}'">
+            <label>
+                <h5 lang="ru"><b>{{ name }}</b></h5>
+                <label style="font-size:large" class="mrgright2">
+                    Авторы:<br>
+                    {{#each authors}}
+                        {{name}}<br>
+                    {{/each}}
+                </label>
+                <label class="mrgright">
+                    Теги:<br>
+                    {{#each tags}}
+                        {{this}}<br>
+                    {{/each}}
+                </label>
+                <label lang="ru">{{  datePublication }}</label>
+            </label>
+        </li>
+    {{/each}}
+</ul>
+{{else}}
+<p>Статьи не найдены</p>
+{{/if}}
